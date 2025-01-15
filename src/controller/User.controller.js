@@ -26,7 +26,7 @@ console.log("email:", email);
 if([fullname,email, usename,password].some((field)=>field?.trim()==="")){
 throw new ApiError(400, "all field are  required");
 }
-const existUser=User.findOne({
+const existUser=await User.findOne({
   $or:[{username}, {email}]
 })
 //check username and email is exist or not
